@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["dom"],
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "graphql-types.ts"],
+  "exclude": ["src/assets/**"]
+}

@@ -1,0 +1,5 @@
+graphql-types.ts
+.cache
+node_modules
+gatsby-*.js
+public
