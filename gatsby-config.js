@@ -89,13 +89,11 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-layout',
     {
-      resolve: 'gatsby-plugin-prefetch-google-fonts',
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          {
-            family: 'IBM Plex Sans',
-          },
-        ],
+        google: {
+          families: ['IBM Plex Sans'],
+        },
       },
     },
   ],
