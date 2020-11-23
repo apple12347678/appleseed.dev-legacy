@@ -1,3 +1,4 @@
 {
-  "test": "안녕 세상!"
+  "index.title": "안녕하세요!",
+  "index.introduction": "저는 프론트엔드 개발자 appleseed 입니다."
 }

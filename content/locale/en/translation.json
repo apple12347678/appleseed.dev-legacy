@@ -1,3 +1,4 @@
 {
-  "test": "Hello world!"
+  "index.title": "Hello!",
+  "index.introduction": "I am appleseed, a frontend developer."
 }

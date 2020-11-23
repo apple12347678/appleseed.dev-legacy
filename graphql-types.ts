@@ -1311,11 +1311,13 @@ export type SitePageContextI18nResourcesEnFilterInput = {
 };
 
 export type SitePageContextI18nResourcesEnTranslation = {
-  test?: Maybe<Scalars['String']>;
+  index_title?: Maybe<Scalars['String']>;
+  index_introduction?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationFilterInput = {
-  test?: Maybe<StringQueryOperatorInput>;
+  index_title?: Maybe<StringQueryOperatorInput>;
+  index_introduction?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesFilterInput = {
@@ -1332,11 +1334,13 @@ export type SitePageContextI18nResourcesKoFilterInput = {
 };
 
 export type SitePageContextI18nResourcesKoTranslation = {
-  test?: Maybe<Scalars['String']>;
+  index_title?: Maybe<Scalars['String']>;
+  index_introduction?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesKoTranslationFilterInput = {
-  test?: Maybe<StringQueryOperatorInput>;
+  index_title?: Maybe<StringQueryOperatorInput>;
+  index_introduction?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -1501,6 +1505,10 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___background_color'
   | 'pluginCreator___pluginOptions___theme_color'
   | 'pluginCreator___pluginOptions___display'
+  | 'pluginCreator___pluginOptions___icons'
+  | 'pluginCreator___pluginOptions___icons___src'
+  | 'pluginCreator___pluginOptions___icons___sizes'
+  | 'pluginCreator___pluginOptions___icons___type'
   | 'pluginCreator___pluginOptions___cache_busting_mode'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___legacy'
@@ -1509,8 +1517,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___autoLabel'
   | 'pluginCreator___pluginOptions___labelFormat'
   | 'pluginCreator___pluginOptions___cssPropOptimization'
-  | 'pluginCreator___pluginOptions___fonts'
-  | 'pluginCreator___pluginOptions___fonts___family'
+  | 'pluginCreator___pluginOptions___google___families'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -1715,6 +1722,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___background_color'
   | 'pluginOptions___theme_color'
   | 'pluginOptions___display'
+  | 'pluginOptions___icons'
+  | 'pluginOptions___icons___src'
+  | 'pluginOptions___icons___sizes'
+  | 'pluginOptions___icons___type'
   | 'pluginOptions___cache_busting_mode'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___legacy'
@@ -1723,8 +1734,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___autoLabel'
   | 'pluginOptions___labelFormat'
   | 'pluginOptions___cssPropOptimization'
-  | 'pluginOptions___fonts'
-  | 'pluginOptions___fonts___family'
+  | 'pluginOptions___google___families'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -1855,6 +1865,7 @@ export type SitePluginPluginOptions = {
   background_color?: Maybe<Scalars['String']>;
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
+  icons?: Maybe<Array<Maybe<SitePluginPluginOptionsIcons>>>;
   cache_busting_mode?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
@@ -1863,7 +1874,7 @@ export type SitePluginPluginOptions = {
   autoLabel?: Maybe<Scalars['Boolean']>;
   labelFormat?: Maybe<Scalars['String']>;
   cssPropOptimization?: Maybe<Scalars['Boolean']>;
-  fonts?: Maybe<Array<Maybe<SitePluginPluginOptionsFonts>>>;
+  google?: Maybe<SitePluginPluginOptionsGoogle>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -1882,6 +1893,7 @@ export type SitePluginPluginOptionsFilterInput = {
   background_color?: Maybe<StringQueryOperatorInput>;
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
+  icons?: Maybe<SitePluginPluginOptionsIconsFilterListInput>;
   cache_busting_mode?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
@@ -1890,20 +1902,16 @@ export type SitePluginPluginOptionsFilterInput = {
   autoLabel?: Maybe<BooleanQueryOperatorInput>;
   labelFormat?: Maybe<StringQueryOperatorInput>;
   cssPropOptimization?: Maybe<BooleanQueryOperatorInput>;
-  fonts?: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
+  google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
-export type SitePluginPluginOptionsFonts = {
-  family?: Maybe<Scalars['String']>;
+export type SitePluginPluginOptionsGoogle = {
+  families?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
-export type SitePluginPluginOptionsFontsFilterInput = {
-  family?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFontsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsFontsFilterInput>;
+export type SitePluginPluginOptionsGoogleFilterInput = {
+  families?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsI18nextOptions = {
@@ -1924,6 +1932,22 @@ export type SitePluginPluginOptionsI18nextOptionsInterpolation = {
 
 export type SitePluginPluginOptionsI18nextOptionsInterpolationFilterInput = {
   escapeValue?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsIcons = {
+  src?: Maybe<Scalars['String']>;
+  sizes?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsIconsFilterInput = {
+  src?: Maybe<StringQueryOperatorInput>;
+  sizes?: Maybe<StringQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsIconsFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsIconsFilterInput>;
 };
 
 export type SitePluginSortInput = {

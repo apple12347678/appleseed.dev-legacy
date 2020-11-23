@@ -1,15 +1,29 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
 import { useTranslation } from 'react-i18next';
 
-import { SEO } from '../components';
+import { Container, SEO } from '../components';
 
-export default function Home() {
+const BannerContainer = styled.div`
+  padding: 0 60px;
+`;
+
+const Title = styled.h1`
+  font-size: 3rem;
+`;
+
+export default function HomePage() {
   const { t } = useTranslation();
   return (
     <>
       <SEO title="Home" />
-      <div>{t('test')}</div>
+      <Container>
+        <BannerContainer>
+          <Title>{t('index.title')}</Title>
+          <p>{t('index.introduction')}</p>
+        </BannerContainer>
+      </Container>
     </>
   );
 }
