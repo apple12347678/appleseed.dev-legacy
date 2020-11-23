@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: "appleseed's home page",
+    title: "appleseed's homepage",
     author: {
       name: 'Chankyu Kang',
       summary: 'A typescript developer, junior system architect',
       email: 'apple12347678@gmail.com',
     },
-    description: 'A home page of appleseed',
+    description: 'A homepage of appleseed',
     site_url: 'https://appleseed.dev',
   },
   plugins: [
