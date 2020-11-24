@@ -20,6 +20,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'resume',
+        path: `${__dirname}/content/resume`,
+      },
+    },
+    'gatsby-plugin-mdx',
+    {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
         path: `${__dirname}/content/locale`,
@@ -33,7 +41,12 @@ module.exports = {
           nsSeparator: false,
         },
         redirect: false,
-        pages: [],
+        pages: [
+          {
+            matchPath: '/:lang?/resume',
+            getLanguageFromPath: true,
+          },
+        ],
       },
     },
     {
