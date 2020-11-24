@@ -1,4 +1,5 @@
 {
   "index.title": "Hello!",
-  "index.introduction": "I am appleseed, a frontend developer."
+  "index.introduction": "I am appleseed, a frontend developer.",
+  "404.message": "You just hit a route that doesn't exist... the sadness."
 }
