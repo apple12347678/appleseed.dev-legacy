@@ -26,7 +26,11 @@ declare module '@mdx-js/react' {
     | 'td'
     | 'thematicBreak'
     | 'tr'
-    | 'ul';
+    | 'ul'
+    | 'Root'
+    | 'Avatar'
+    | 'Profile'
+    | 'Updated';
   export type Components = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key in ComponentType]?: React.ComponentType<any>;

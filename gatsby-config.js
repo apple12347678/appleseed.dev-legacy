@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "appleseed's homepage",
+    title: 'appleseed',
     author: {
       name: 'Chankyu Kang',
       summary: 'A typescript developer, junior system architect',

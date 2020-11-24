@@ -52,7 +52,7 @@ export default function SEO({ title, meta = [] }: ISEOProps) {
     },
     {
       property: 'og:image',
-      content: 'https://blog.appleseed.dev/banner.png',
+      content: 'https://appleseed.dev/banner.png',
     },
   ];
 

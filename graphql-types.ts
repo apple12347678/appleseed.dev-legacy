@@ -1626,14 +1626,14 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  language: Scalars['String'];
   id?: Maybe<Scalars['String']>;
-  language?: Maybe<Scalars['String']>;
   i18n?: Maybe<SitePageContextI18n>;
 };
 
 export type SitePageContextFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
   language?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
   i18n?: Maybe<SitePageContextI18nFilterInput>;
 };
 
@@ -1658,8 +1658,8 @@ export type SitePageContextI18nFilterInput = {
 };
 
 export type SitePageContextI18nResources = {
-  ko?: Maybe<SitePageContextI18nResourcesKo>;
   en?: Maybe<SitePageContextI18nResourcesEn>;
+  ko?: Maybe<SitePageContextI18nResourcesKo>;
 };
 
 export type SitePageContextI18nResourcesEn = {
@@ -1673,16 +1673,18 @@ export type SitePageContextI18nResourcesEnFilterInput = {
 export type SitePageContextI18nResourcesEnTranslation = {
   index_title?: Maybe<Scalars['String']>;
   index_introduction?: Maybe<Scalars['String']>;
+  _404_message?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationFilterInput = {
   index_title?: Maybe<StringQueryOperatorInput>;
   index_introduction?: Maybe<StringQueryOperatorInput>;
+  _404_message?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesFilterInput = {
-  ko?: Maybe<SitePageContextI18nResourcesKoFilterInput>;
   en?: Maybe<SitePageContextI18nResourcesEnFilterInput>;
+  ko?: Maybe<SitePageContextI18nResourcesKoFilterInput>;
 };
 
 export type SitePageContextI18nResourcesKo = {
@@ -1696,11 +1698,13 @@ export type SitePageContextI18nResourcesKoFilterInput = {
 export type SitePageContextI18nResourcesKoTranslation = {
   index_title?: Maybe<Scalars['String']>;
   index_introduction?: Maybe<Scalars['String']>;
+  _404_message?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesKoTranslationFilterInput = {
   index_title?: Maybe<StringQueryOperatorInput>;
   index_introduction?: Maybe<StringQueryOperatorInput>;
+  _404_message?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -1802,8 +1806,8 @@ export type SitePageFieldsEnum =
   | 'internal___owner'
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
-  | 'context___id'
   | 'context___language'
+  | 'context___id'
   | 'context___i18n___language'
   | 'context___i18n___languages'
   | 'context___i18n___defaultLanguage'
@@ -1880,12 +1884,12 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___legacy'
   | 'pluginCreator___pluginOptions___theme_color_in_head'
+  | 'pluginCreator___pluginOptions___google___families'
+  | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___sourceMap'
   | 'pluginCreator___pluginOptions___autoLabel'
   | 'pluginCreator___pluginOptions___labelFormat'
   | 'pluginCreator___pluginOptions___cssPropOptimization'
-  | 'pluginCreator___pluginOptions___google___families'
-  | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -2103,12 +2107,12 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___legacy'
   | 'pluginOptions___theme_color_in_head'
+  | 'pluginOptions___google___families'
+  | 'pluginOptions___pathCheck'
   | 'pluginOptions___sourceMap'
   | 'pluginOptions___autoLabel'
   | 'pluginOptions___labelFormat'
   | 'pluginOptions___cssPropOptimization'
-  | 'pluginOptions___google___families'
-  | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -2247,12 +2251,12 @@ export type SitePluginPluginOptions = {
   include_favicon?: Maybe<Scalars['Boolean']>;
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
+  google?: Maybe<SitePluginPluginOptionsGoogle>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
   sourceMap?: Maybe<Scalars['Boolean']>;
   autoLabel?: Maybe<Scalars['Boolean']>;
   labelFormat?: Maybe<Scalars['String']>;
   cssPropOptimization?: Maybe<Scalars['Boolean']>;
-  google?: Maybe<SitePluginPluginOptionsGoogle>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -2279,12 +2283,12 @@ export type SitePluginPluginOptionsFilterInput = {
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
+  google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
   sourceMap?: Maybe<BooleanQueryOperatorInput>;
   autoLabel?: Maybe<BooleanQueryOperatorInput>;
   labelFormat?: Maybe<StringQueryOperatorInput>;
   cssPropOptimization?: Maybe<BooleanQueryOperatorInput>;
-  google?: Maybe<SitePluginPluginOptionsGoogleFilterInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsGoogle = {
