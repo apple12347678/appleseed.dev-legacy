@@ -40,7 +40,7 @@ export const getGlobalStyle = (theme: Theme) => css`
 
   h1,
   h2 {
-    font-weight: 700;
+    font-weight: 600;
     margin-block-start: 0.5em;
     margin-block-end: 0.25em;
   }
@@ -48,7 +48,7 @@ export const getGlobalStyle = (theme: Theme) => css`
   h4,
   h5,
   h6 {
-    font-weight: 700;
+    font-weight: 600;
     margin-block-start: 0.25em;
     margin-block-end: 0.15em;
   }

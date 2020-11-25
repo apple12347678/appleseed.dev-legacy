@@ -15,30 +15,50 @@ import ProfileImage from '../assets/profile.png';
 import { SEO } from '../components';
 import { ThemeProps } from '../styles/theme';
 
-const AvatarImg = styled.img`
+const AvatarImg = styled.img<ThemeProps>`
   width: 260px;
   height: 260px;
-  margin-right: 60px;
   border-radius: 130px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+  }
 `;
 
 function Avatar() {
-  return (
-    <AvatarImg alt="profile" width="260" height="260" src={ProfileImage} />
-  );
+  return <AvatarImg alt="profile" src={ProfileImage} />;
 }
 
 const Root = styled.div<ThemeProps>`
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+    flex-direction: column;
+    text-align: center;
+  }
 `;
 
-const Row = styled.div`
+const Row = styled.div<ThemeProps>`
   display: flex;
+  align-items: center;
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+    justify-content: center;
+  }
 `;
 
 const ProfileWrapper = styled.div<ThemeProps>`
-  display: inline-block;
+  height: 100%;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+    margin-left: 0;
+  }
 `;
 
 const Title = styled.h1<ThemeProps>`
@@ -58,21 +78,21 @@ const Subtitle = styled.p<ThemeProps>`
 `;
 
 const Link = styled.a`
-  height: 40px;
-  margin-right: 4px;
+  height: 32px;
+  margin-right: 2px;
 `;
 
-const IconWrapper = styled.img<{ $full?: boolean }>`
+const IconWrapper = styled.img<{ $padding?: number }>`
   ${(props) =>
-    props.$full
+    props.$padding
       ? `
-    width: 32px;
-    height: 32px;
-    padding: 4px;
+    width: ${32 - props.$padding * 2}px;
+    height: ${32 - props.$padding * 2}px;
+    padding: ${props.$padding}px;
   `
       : `
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   `}
 `;
 
@@ -83,16 +103,34 @@ function Profile() {
       <Subtitle>appleseed • apple12347678</Subtitle>
       <Row>
         <Link href="https://github.com/apple12347678/">
-          <IconWrapper width="40" height="40" src={GithubIcon} />
+          <IconWrapper alt="github" width="32" height="32" src={GithubIcon} />
         </Link>
         <Link href="mailto:apple12347678@gmail.com">
-          <IconWrapper width="40" height="40" src={MailIcon} />
+          <IconWrapper
+            alt="mail"
+            width="32"
+            height="32"
+            $padding={2}
+            src={MailIcon}
+          />
         </Link>
         <Link href="https://www.instagram.com/apple12347678/">
-          <IconWrapper width="40" height="40" $full src={InstagramIcon} />
+          <IconWrapper
+            alt="instagram"
+            width="32"
+            height="32"
+            $padding={5}
+            src={InstagramIcon}
+          />
         </Link>
         <Link href="https://www.linkedin.com/in/%EC%B0%AC%EA%B7%9C-%EA%B0%95-681054190/">
-          <IconWrapper width="40" height="40" $full src={LinkedInIcon} />
+          <IconWrapper
+            alt="linkedin"
+            width="32"
+            height="32"
+            $padding={5}
+            src={LinkedInIcon}
+          />
         </Link>
       </Row>
     </ProfileWrapper>
@@ -110,7 +148,10 @@ const Wrapper = styled.div<ThemeProps>`
   max-width: ${(props) => props.theme.breakpoints.sm}px;
   margin-left: auto;
   margin-right: auto;
-  padding: 60px 60px 40px;
+  padding: 4rem 4rem 2.5rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+    padding: 2rem 2rem 1rem;
+  }
 `;
 
 const GoBack = styled.div`

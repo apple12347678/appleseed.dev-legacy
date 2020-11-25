@@ -99,7 +99,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['IBM Plex Sans'],
+          families: ['IBM Plex Sans:400,600'],
         },
       },
     },
