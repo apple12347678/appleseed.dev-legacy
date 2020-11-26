@@ -81,8 +81,13 @@ const Link = styled.a`
   margin-right: 2px;
 `;
 
-const IconWrapper = styled.img<{ $padding?: number }>`
-  ${(props) =>
+const IconWrapper = styled.div<{ $padding?: number }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  /* ${(props) =>
     props.$padding
       ? `
     width: ${32 - props.$padding * 2}px;
@@ -92,7 +97,10 @@ const IconWrapper = styled.img<{ $padding?: number }>`
       : `
     width: 32px;
     height: 32px;
-  `}
+  `} */
+  & > svg {
+    fill: var(--color-100);
+  }
 `;
 
 function Profile() {
@@ -102,34 +110,24 @@ function Profile() {
       <Subtitle>appleseed • apple12347678</Subtitle>
       <Row>
         <Link href="https://github.com/apple12347678/">
-          <IconWrapper alt="github" width="32" height="32" src={GithubIcon} />
+          <IconWrapper>
+            <GithubIcon width="32" height="32" />
+          </IconWrapper>
         </Link>
         <Link href="mailto:apple12347678@gmail.com">
-          <IconWrapper
-            alt="mail"
-            width="32"
-            height="32"
-            $padding={2}
-            src={MailIcon}
-          />
+          <IconWrapper>
+            <MailIcon width="28" height="28" />
+          </IconWrapper>
         </Link>
         <Link href="https://www.instagram.com/apple12347678/">
-          <IconWrapper
-            alt="instagram"
-            width="32"
-            height="32"
-            $padding={5}
-            src={InstagramIcon}
-          />
+          <IconWrapper>
+            <InstagramIcon width="24" height="24" />
+          </IconWrapper>
         </Link>
         <Link href="https://www.linkedin.com/in/%EC%B0%AC%EA%B7%9C-%EA%B0%95-681054190/">
-          <IconWrapper
-            alt="linkedin"
-            width="32"
-            height="32"
-            $padding={5}
-            src={LinkedInIcon}
-          />
+          <IconWrapper>
+            <LinkedInIcon width="24" height="24" />
+          </IconWrapper>
         </Link>
       </Row>
     </ProfileWrapper>

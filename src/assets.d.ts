@@ -4,6 +4,6 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  const Vector: string;
+  const Vector: (props: React.SVGProps<React.ReactSVG>) => React.ReactElement;
   export default Vector;
 }
