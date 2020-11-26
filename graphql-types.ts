@@ -1658,8 +1658,8 @@ export type SitePageContextI18nFilterInput = {
 };
 
 export type SitePageContextI18nResources = {
-  en?: Maybe<SitePageContextI18nResourcesEn>;
   ko?: Maybe<SitePageContextI18nResourcesKo>;
+  en?: Maybe<SitePageContextI18nResourcesEn>;
 };
 
 export type SitePageContextI18nResourcesEn = {
@@ -1683,8 +1683,8 @@ export type SitePageContextI18nResourcesEnTranslationFilterInput = {
 };
 
 export type SitePageContextI18nResourcesFilterInput = {
-  en?: Maybe<SitePageContextI18nResourcesEnFilterInput>;
   ko?: Maybe<SitePageContextI18nResourcesKoFilterInput>;
+  en?: Maybe<SitePageContextI18nResourcesEnFilterInput>;
 };
 
 export type SitePageContextI18nResourcesKo = {

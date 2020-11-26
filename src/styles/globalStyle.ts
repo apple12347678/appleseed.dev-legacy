@@ -1,8 +1,6 @@
 import { css } from '@emotion/core';
 
-import { Theme } from './theme';
-
-export const getGlobalStyle = (theme: Theme) => css`
+export const globalStyle = css`
   html {
     font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
@@ -10,10 +8,33 @@ export const getGlobalStyle = (theme: Theme) => css`
       'Noto Color Emoji';
     font-size: 16px;
     line-height: 1.75;
-    color: ${theme.colors[100]};
-    @media (max-width: ${theme.breakpoints.sm}px) {
+
+    --color-100: #17181c;
+    --color-200: #24252b;
+    --color-300: #393b44;
+    --color-400: #767c93;
+    --color-500: #8790ab;
+    --color-600: #99a2be;
+    --color-700: #b1bbd4;
+    --color-800: #d6e0f0;
+    --color-900: #f1f3f8;
+    @media (prefers-color-scheme: dark) {
+      --color-100: #f1f3f8;
+      --color-200: #d6e0f0;
+      --color-300: #b1bbd4;
+      --color-400: #99a2be;
+      --color-500: #8790ab;
+      --color-600: #767c93;
+      --color-700: #393b44;
+      --color-800: #24252b;
+      --color-900: #17181c;
+    }
+    @media (max-width: 720px) {
       font-size: 14px;
     }
+
+    color: var(--color-100);
+    background-color: var(--color-900);
   }
 
   body {
@@ -25,12 +46,12 @@ export const getGlobalStyle = (theme: Theme) => css`
   }
 
   *::selection {
-    color: ${theme.colors[900]};
-    background-color: ${theme.colors[100]};
+    color: var(--color-900);
+    background-color: var(--color-100);
   }
 
   a {
-    color: ${theme.colors[400]};
+    color: var(--color-400);
     text-decoration: none;
   }
 
@@ -76,7 +97,7 @@ export const getGlobalStyle = (theme: Theme) => css`
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
     font-size: 1rem;
-    color: ${theme.colors[200]};
+    color: var(--color-200);
   }
 
   li {

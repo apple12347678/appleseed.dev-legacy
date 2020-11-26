@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import { ThemeProps } from '../styles/theme';
 import RootProvider from './RootProvider';
 
 const Footer = styled.footer`
@@ -12,9 +11,9 @@ const Footer = styled.footer`
   align-items: flex-end;
 `;
 
-const Copyright = styled.span<ThemeProps>`
+const Copyright = styled.span`
   margin-right: auto;
-  color: ${(props) => props.theme.colors[500]};
+  color: var(--color-500);
   font-size: 0.85rem;
   font-weight: 400;
   user-select: none;

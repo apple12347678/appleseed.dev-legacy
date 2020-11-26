@@ -13,14 +13,13 @@ import LinkedInIcon from '../assets/linkedin.svg';
 import MailIcon from '../assets/mail.svg';
 import ProfileImage from '../assets/profile.png';
 import { SEO } from '../components';
-import { ThemeProps } from '../styles/theme';
 
-const AvatarImg = styled.img<ThemeProps>`
+const AvatarImg = styled.img`
   width: 260px;
   height: 260px;
   border-radius: 130px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+  @media (max-width: 720px) {
     width: 120px;
     height: 120px;
     border-radius: 60px;
@@ -31,48 +30,48 @@ function Avatar() {
   return <AvatarImg alt="profile" src={ProfileImage} />;
 }
 
-const Root = styled.div<ThemeProps>`
+const Root = styled.div`
   margin-bottom: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+  @media (max-width: 720px) {
     flex-direction: column;
     text-align: center;
   }
 `;
 
-const Row = styled.div<ThemeProps>`
+const Row = styled.div`
   display: flex;
   align-items: center;
-  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+  @media (max-width: 720px) {
     justify-content: center;
   }
 `;
 
-const ProfileWrapper = styled.div<ThemeProps>`
+const ProfileWrapper = styled.div`
   height: 100%;
   margin-left: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+  @media (max-width: 720px) {
     margin-left: 0;
   }
 `;
 
-const Title = styled.h1<ThemeProps>`
+const Title = styled.h1`
   font-size: 3rem;
-  color: ${(props) => props.theme.colors[100]};
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+  color: var(--color-100);
+  @media (max-width: 960px) {
     font-size: 2.5rem;
   }
 `;
 
-const Subtitle = styled.p<ThemeProps>`
+const Subtitle = styled.p`
   font-size: 1.5rem;
-  color: ${(props) => props.theme.colors[300]};
-  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+  color: var(--color-300);
+  @media (max-width: 960px) {
     font-size: 1.3rem;
   }
 `;
@@ -137,19 +136,19 @@ function Profile() {
   );
 }
 
-const Updated = styled.p<ThemeProps>`
+const Updated = styled.p`
   font-size: 0.9rem;
-  color: ${(props) => props.theme.colors[400]};
+  color: var(--color-400);
 `;
 
 const shortcodes = { Root, Avatar, Profile, Updated };
 
-const Wrapper = styled.div<ThemeProps>`
-  max-width: ${(props) => props.theme.breakpoints.sm}px;
+const Wrapper = styled.div`
+  max-width: 960px;
   margin-left: auto;
   margin-right: auto;
   padding: 4rem 4rem 2.5rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.xs}px) {
+  @media (max-width: 720px) {
     padding: 2rem 2rem 1rem;
   }
 `;
