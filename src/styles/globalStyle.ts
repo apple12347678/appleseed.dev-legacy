@@ -79,67 +79,9 @@ export const getGlobalStyle = (theme: Theme) => css`
     color: ${theme.colors[200]};
   }
 
-  blockquote {
-    margin: 0;
-    padding-left: 24px;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    border-left: 4px solid ${theme.colors[200]};
-    & > * {
-      color: ${theme.colors[400]};
-    }
-    & > p {
-      font-size: 1.15rem;
-      line-height: 1.75;
-      font-style: italic;
-    }
-  }
-
   li {
     margin: 0;
     margin-block-start: 0.3em;
     margin-block-end: 0.3em;
-  }
-
-  table {
-    width: 100%;
-    margin-block-start: 2em;
-    margin-block-end: 2em;
-    border-collapse: collapse;
-    thead {
-      border-bottom: 1px solid;
-      border-color: inherit;
-    }
-  }
-
-  pre {
-    border-radius: 4px;
-  }
-
-  .footnotes {
-    ol {
-      counter-reset: item;
-      padding: 0;
-    }
-    li {
-      display: block;
-      font-size: 0.9rem;
-      margin-block-start: 0.4em;
-      margin-block-end: 0.4em;
-    }
-    li:before {
-      content: counter(item) '. ';
-      counter-increment: item;
-      width: 2em;
-      display: inline-block;
-    }
-  }
-
-  .footnote-paragraph {
-    font-size: 0.9rem;
-  }
-
-  .gatsby-resp-image-image {
-    margin: 1rem 0;
   }
 `;
