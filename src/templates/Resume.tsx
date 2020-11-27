@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link as I18nLink } from 'gatsby-plugin-react-i18next';
 
@@ -11,10 +12,9 @@ import GithubIcon from '../assets/github.svg';
 import InstagramIcon from '../assets/instagram.svg';
 import LinkedInIcon from '../assets/linkedin.svg';
 import MailIcon from '../assets/mail.svg';
-import ProfileImage from '../assets/profile.png';
 import { SEO } from '../components';
 
-const AvatarImg = styled.img`
+const AvatarImg = styled(Img)`
   width: 260px;
   height: 260px;
   border-radius: 130px;
@@ -26,8 +26,8 @@ const AvatarImg = styled.img`
   }
 `;
 
-function Avatar() {
-  return <AvatarImg alt="profile" src={ProfileImage} />;
+function Avatar({ file }: { file: ResumeQuery['file'] }) {
+  return <AvatarImg fluid={file?.childImageSharp?.fluid as FluidObject} />;
 }
 
 const Root = styled.div`
@@ -162,7 +162,7 @@ interface IResumeTemplateProps {
 }
 
 export default function ResumeTemplate({
-  data: { mdx },
+  data: { file, mdx },
 }: IResumeTemplateProps) {
   if (!mdx) {
     return null;
@@ -171,6 +171,10 @@ export default function ResumeTemplate({
     <>
       <SEO title="Resume" />
       <Wrapper>
+        <Root>
+          <Avatar file={file} />
+          <Profile />
+        </Root>
         <MDXProvider components={shortcodes}>
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </MDXProvider>
@@ -187,6 +191,13 @@ export const pageQuery = graphql`
     mdx(id: { eq: $id }) {
       id
       body
+    }
+    file(relativePath: { eq: "profile.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
 `;

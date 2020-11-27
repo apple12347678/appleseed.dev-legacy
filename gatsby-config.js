@@ -26,6 +26,15 @@ module.exports = {
         path: `${__dirname}/content/resume`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'assets',
+        path: `${__dirname}/content/assets`,
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-plugin-react-i18next',
