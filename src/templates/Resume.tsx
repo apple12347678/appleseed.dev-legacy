@@ -87,17 +87,6 @@ const IconWrapper = styled.div<{ $padding?: number }>`
   justify-content: center;
   width: 32px;
   height: 32px;
-  /* ${(props) =>
-    props.$padding
-      ? `
-    width: ${32 - props.$padding * 2}px;
-    height: ${32 - props.$padding * 2}px;
-    padding: ${props.$padding}px;
-  `
-      : `
-    width: 32px;
-    height: 32px;
-  `} */
   & > svg {
     fill: var(--color-100);
   }
