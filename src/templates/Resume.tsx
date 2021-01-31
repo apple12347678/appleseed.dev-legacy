@@ -113,7 +113,7 @@ function Profile() {
             <InstagramIcon width="24" height="24" />
           </IconWrapper>
         </Link>
-        <Link href="https://www.linkedin.com/in/%EC%B0%AC%EA%B7%9C-%EA%B0%95-681054190/">
+        <Link href="https://www.linkedin.com/in/ckkennethkang/">
           <IconWrapper>
             <LinkedInIcon width="24" height="24" />
           </IconWrapper>
