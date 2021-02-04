@@ -55,9 +55,4 @@ jobs:
       - name: Build
         run: yarn build
       - name: Deploy
-        run: aws s3 sync ./public s3://appleseed.dev
-      - name: Purge CDN
-        run: |
-          aws cloudfront create-invalidation --distribution-id E3M2M5CRHYQOOX --paths \
-          / "/index*" "/404*" "/icons*" /browserconfig.xml /chunk-map.json "/manifest.*" \
-          /favicon.ico /robots.txt
+        run: aws s3 sync ./public s3://appleseed-dev
