@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { MDXProvider } from '@mdx-js/react';
 import { graphql } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { Link as I18nLink } from 'gatsby-plugin-react-i18next';
 
@@ -14,7 +14,7 @@ import LinkedInIcon from '../assets/linkedin.svg';
 import MailIcon from '../assets/mail.svg';
 import { SEO } from '../components';
 
-const AvatarImg = styled(Img)`
+const Avatar = styled(GatsbyImage)`
   width: 260px;
   height: 260px;
   border-radius: 130px;
@@ -26,9 +26,8 @@ const AvatarImg = styled(Img)`
   }
 `;
 
-function Avatar({ file }: { file: ResumeQuery['file'] }) {
-  return <AvatarImg fluid={file?.childImageSharp?.fluid as FluidObject} />;
-}
+// function Avatar({ file }: { file: ResumeQuery['file'] }) {
+// }
 
 const Root = styled.div`
   margin-bottom: 40px;
@@ -161,7 +160,7 @@ export default function ResumeTemplate({
       <SEO title="Resume" />
       <Wrapper>
         <Root>
-          <Avatar file={file} />
+          <Avatar alt="avatar" image={file!.childImageSharp!.gatsbyImageData} />
           <Profile />
         </Root>
         <MDXProvider components={shortcodes}>
@@ -175,17 +174,24 @@ export default function ResumeTemplate({
   );
 }
 
-export const pageQuery = graphql`
-  query Resume($id: String!) {
+export const query = graphql`
+  query Resume($id: String!, $language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     mdx(id: { eq: $id }) {
       id
       body
     }
     file(relativePath: { eq: "profile.png" }) {
       childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
+        gatsbyImageData
       }
     }
   }

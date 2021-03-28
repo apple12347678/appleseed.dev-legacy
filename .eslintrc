@@ -87,7 +87,7 @@
     "react/jsx-indent": "off",
     "react/jsx-filename-extension": "off",
     "react/require-default-props": "off",
-    "simple-import-sort/sort": [
+    "simple-import-sort/imports": [
       "warn",
       {
         "groups": [

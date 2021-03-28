@@ -33,13 +33,20 @@ module.exports = {
         path: `${__dirname}/content/assets`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'locale',
+        path: `${__dirname}/content/locale`,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
-        path: `${__dirname}/content/locale`,
+        localeJsonSourceName: 'locale',
         languages: ['en', 'ko'],
         defaultLanguage: 'ko',
         i18nextOptions: {

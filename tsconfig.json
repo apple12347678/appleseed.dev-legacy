@@ -8,7 +8,8 @@
     "noEmit": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "graphql-types.ts"],
   "exclude": ["src/assets/**"]

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { Link as I18nLink } from 'gatsby-plugin-react-i18next';
 import { useTranslation } from 'react-i18next';
 
@@ -46,3 +46,17 @@ export default function HomePage({ pageContext }: IHomePageProps) {
     </>
   );
 }
+
+export const query = graphql`
+  query IndexPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

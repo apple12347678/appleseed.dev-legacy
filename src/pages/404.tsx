@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import { SEO } from '../components';
@@ -21,3 +22,17 @@ export default function NotFoundPage() {
     </>
   );
 }
+
+export const query = graphql`
+  query NotFoundPage($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
