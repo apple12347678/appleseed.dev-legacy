@@ -1,13 +1,11 @@
-import path from 'path';
 import { GatsbyNode } from 'gatsby';
+import path from 'path';
 
 const createPages: GatsbyNode['createPages'] = async ({
   graphql,
-  actions,
+  actions: { createPage },
   reporter,
 }) => {
-  const { createPage } = actions;
-
   const Resume = path.resolve('./src/templates/Resume.tsx');
 
   const result = await graphql(
