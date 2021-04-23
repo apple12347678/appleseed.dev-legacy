@@ -3,3 +3,4 @@ graphql-types.ts
 node_modules
 gatsby-*.js
 public
+.pnp.js
