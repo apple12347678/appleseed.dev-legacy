@@ -1,5 +1,5 @@
-import path from 'path';
 import { GatsbyConfig } from 'gatsby';
+import path from 'path';
 
 const root = path.dirname(__dirname);
 
